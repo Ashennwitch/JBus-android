@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="login_form" type="id" />
+    <item name="email_editText" type="id" />
+    <item name="password_editText" type="id" />
+    <item name="login_button" type="id" />
+    <item name="donthaveanaccount_textview" type="id" />
+</resources>

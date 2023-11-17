@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:gravity="center"
+    android:orientation="vertical"> <!-- Add this line -->
+    <!-- Fill the linear layout with some components-->
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FF4040"
+        android:gravity="center"
+        android:text="Register your account"
+        android:textColor="?android:attr/colorActivatedHighlight"
+        android:textSize="30sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/donthaveanaccount_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Input username, email, and password"
+        android:onClick="onRegisterClick"/>
+
+    <LinearLayout
+        android:id="@+id/register_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Username EditText -->
+        <EditText
+            android:id="@+id/username_editText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Username"
+            android:inputType="text"/>
+
+        <!-- Email EditText -->
+        <EditText
+            android:id="@+id/email_editText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"/>/>
+
+        <!-- Password EditText -->
+        <EditText
+            android:id="@+id/password_editText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="Password"
+            android:inputType="textPassword"/>
+
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLoginClick"
+            android:text="Register"
+            android:textColor="#000000"
+            app:iconTint="#00F65555"
+            app:cornerRadius="28dp"
+            android:backgroundTint="#ED5737" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
