@@ -40,5 +40,4 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(ctx, message, Toast. LENGTH_SHORT) . show ();
     }
 
-
 }

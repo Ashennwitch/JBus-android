@@ -28,6 +28,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Jsleepandroid" >
         <activity
+            android:name="com.HanifNurIlhamSanjayaJBusBR.AboutMeActivity"
+            android:exported="false" />
+        <activity
             android:name="com.HanifNurIlhamSanjayaJBusBR.MainActivity"
             android:exported="false" />
         <activity
