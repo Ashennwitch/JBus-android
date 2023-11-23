@@ -6,99 +6,106 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
+8-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="33" />
+9-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml
 10
-11    <permission
-11-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\66ed85c701f6c9fc115b0f5b6156f6bb\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
-12        android:name="com.HanifNurIlhamSanjayaJBusBR.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-12-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\66ed85c701f6c9fc115b0f5b6156f6bb\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
-13        android:protectionLevel="signature" />
-13-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\66ed85c701f6c9fc115b0f5b6156f6bb\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
-14
-15    <uses-permission android:name="com.HanifNurIlhamSanjayaJBusBR.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-15-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\66ed85c701f6c9fc115b0f5b6156f6bb\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
-15-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\66ed85c701f6c9fc115b0f5b6156f6bb\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:4:22-64
+12
+13    <permission
+13-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\9d5d40879d7573f18f02df28bb21bf4e\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+14        android:name="com.HanifNurIlhamSanjayaJBusBR.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\9d5d40879d7573f18f02df28bb21bf4e\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\9d5d40879d7573f18f02df28bb21bf4e\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
 16
-17    <application
-17-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:5:5-33:19
-18        android:allowBackup="true"
-18-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:6:9-35
-19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-19-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\66ed85c701f6c9fc115b0f5b6156f6bb\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
-20        android:dataExtractionRules="@xml/data_extraction_rules"
-20-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:7:9-65
-21        android:debuggable="true"
-22        android:extractNativeLibs="true"
-23        android:fullBackupContent="@xml/backup_rules"
-23-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:8:9-54
-24        android:icon="@mipmap/ic_launcher"
-24-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:9:9-43
-25        android:label="@string/app_name"
-25-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:10:9-41
-26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:11:9-54
-27        android:supportsRtl="true"
-27-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:12:9-35
-28        android:testOnly="true"
-29        android:theme="@style/Theme.Jsleepandroid" >
-29-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:13:9-51
-30        <activity
-30-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:15:9-17:40
-31            android:name="com.HanifNurIlhamSanjayaJBusBR.AboutMeActivity"
-31-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:16:13-44
-32            android:exported="false" />
-32-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:17:13-37
-33        <activity
-33-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:18:9-20:40
-34            android:name="com.HanifNurIlhamSanjayaJBusBR.MainActivity"
-34-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:19:13-41
-35            android:exported="false" />
-35-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:20:13-37
-36        <activity
-36-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:21:9-23:40
-37            android:name="com.HanifNurIlhamSanjayaJBusBR.RegisterActivity"
-37-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:22:13-45
-38            android:exported="false" />
-38-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:23:13-37
-39        <activity
-39-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:24:9-32:20
-40            android:name="com.HanifNurIlhamSanjayaJBusBR.LoginActivity"
-40-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:25:13-42
-41            android:exported="true" >
-41-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:26:13-36
-42            <intent-filter>
-42-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:27:13-31:29
-43                <action android:name="android.intent.action.MAIN" />
-43-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:28:17-69
-43-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:28:25-66
-44
-45                <category android:name="android.intent. category. LAUNCHER" />
-45-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:30:17-79
-45-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:30:27-76
-46            </intent-filter>
-47        </activity>
-48
-49        <provider
-49-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\e705b2b022ec4c81d401694c86ace512\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-50            android:name="androidx.startup.InitializationProvider"
-50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\e705b2b022ec4c81d401694c86ace512\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-51            android:authorities="com.HanifNurIlhamSanjayaJBusBR.androidx-startup"
-51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\e705b2b022ec4c81d401694c86ace512\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-52            android:exported="false" >
-52-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\e705b2b022ec4c81d401694c86ace512\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-53            <meta-data
-53-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\e705b2b022ec4c81d401694c86ace512\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-54                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\e705b2b022ec4c81d401694c86ace512\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-55                android:value="androidx.startup" />
-55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\e705b2b022ec4c81d401694c86ace512\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-56            <meta-data
-56-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Hanif\.gradle\caches\transforms-3\d52d412db771db6551ceb94eedde2244\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-57                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-57-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Hanif\.gradle\caches\transforms-3\d52d412db771db6551ceb94eedde2244\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-58                android:value="androidx.startup" />
-58-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Hanif\.gradle\caches\transforms-3\d52d412db771db6551ceb94eedde2244\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-59        </provider>
-60    </application>
-61
-62</manifest>
+17    <uses-permission android:name="com.HanifNurIlhamSanjayaJBusBR.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\9d5d40879d7573f18f02df28bb21bf4e\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\9d5d40879d7573f18f02df28bb21bf4e\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:5:5-33:19
+20        android:allowBackup="true"
+20-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:7:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.9.0] C:\Users\Hanif\.gradle\caches\transforms-3\9d5d40879d7573f18f02df28bb21bf4e\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+22        android:dataExtractionRules="@xml/data_extraction_rules"
+22-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:8:9-65
+23        android:debuggable="true"
+24        android:fullBackupContent="@xml/backup_rules"
+24-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:9:9-54
+25        android:icon="@mipmap/ic_launcher"
+25-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:10:9-43
+26        android:label="@string/app_name"
+26-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:11:9-41
+27        android:roundIcon="@mipmap/ic_launcher_round"
+27-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:12:9-54
+28        android:supportsRtl="true"
+28-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:13:9-35
+29        android:testOnly="true"
+30        android:theme="@style/Theme.Jsleepandroid"
+30-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:14:9-51
+31        android:usesCleartextTraffic="true" >
+31-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:6:9-44
+32        <activity
+32-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:16:9-18:40
+33            android:name="com.HanifNurIlhamSanjayaJBusBR.AboutMeActivity"
+33-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:17:13-44
+34            android:exported="false" />
+34-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:18:13-37
+35        <activity
+35-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:19:9-21:40
+36            android:name="com.HanifNurIlhamSanjayaJBusBR.MainActivity"
+36-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:20:13-41
+37            android:exported="false" />
+37-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:21:13-37
+38        <activity
+38-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:22:9-24:40
+39            android:name="com.HanifNurIlhamSanjayaJBusBR.RegisterActivity"
+39-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:23:13-45
+40            android:exported="false" />
+40-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:24:13-37
+41        <activity
+41-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:25:9-32:20
+42            android:name="com.HanifNurIlhamSanjayaJBusBR.LoginActivity"
+42-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:26:13-42
+43            android:exported="true" >
+43-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:27:13-36
+44            <intent-filter>
+44-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:28:13-31:29
+45                <action android:name="android.intent.action.MAIN" />
+45-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:29:17-69
+45-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:29:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:30:17-77
+47-->C:\Users\Hanif\AndroidStudioProjects\jsleepandroid\app\src\main\AndroidManifest.xml:30:27-74
+48            </intent-filter>
+49        </activity>
+50
+51        <provider
+51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\2ee5c51ff7c51d7914a45e2fb2152017\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+52            android:name="androidx.startup.InitializationProvider"
+52-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\2ee5c51ff7c51d7914a45e2fb2152017\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+53            android:authorities="com.HanifNurIlhamSanjayaJBusBR.androidx-startup"
+53-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\2ee5c51ff7c51d7914a45e2fb2152017\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+54            android:exported="false" >
+54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\2ee5c51ff7c51d7914a45e2fb2152017\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+55            <meta-data
+55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\2ee5c51ff7c51d7914a45e2fb2152017\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+56                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\2ee5c51ff7c51d7914a45e2fb2152017\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+57                android:value="androidx.startup" />
+57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Hanif\.gradle\caches\transforms-3\2ee5c51ff7c51d7914a45e2fb2152017\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+58            <meta-data
+58-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Hanif\.gradle\caches\transforms-3\ad182d2b1e0b918d37f9b130a2f8978c\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+59                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+59-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Hanif\.gradle\caches\transforms-3\ad182d2b1e0b918d37f9b130a2f8978c\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+60                android:value="androidx.startup" />
+60-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Hanif\.gradle\caches\transforms-3\ad182d2b1e0b918d37f9b130a2f8978c\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+61        </provider>
+62    </application>
+63
+64</manifest>

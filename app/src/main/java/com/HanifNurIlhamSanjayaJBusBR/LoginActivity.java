@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(v -> {
-            moveActivity(this, RegisterActivity.class);
+            moveActivity(this, MainActivity.class);
         });
     }
 
