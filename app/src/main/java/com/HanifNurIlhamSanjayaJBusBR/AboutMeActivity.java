@@ -16,6 +16,8 @@ import com.HanifNurIlhamSanjayaJBusBR.model.BaseResponse;
 import com.HanifNurIlhamSanjayaJBusBR.request.BaseApiService;
 import com.HanifNurIlhamSanjayaJBusBR.request.UtilsApi;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,9 +35,9 @@ public class AboutMeActivity extends AppCompatActivity {
         mApiService = UtilsApi.getApiService();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_me);
+
         topUpInput = findViewById(R.id.topUpAmountEditText);
         TopUp = findViewById(R.id.topUpButton);
-        //TopUp.setOnClickListener(v->performTopUp());
 
         // Mendapatkan referensi ke TextView inisial
         TextView initialTextView = findViewById(R.id.initial);
@@ -50,6 +52,9 @@ public class AboutMeActivity extends AppCompatActivity {
 
         displayAccountData(LoginActivity.loggedAccount);
 
+        TopUp.setOnClickListener(v -> performTopUp());
+    }
+/*
         // Tambahkan listener untuk tombol top-up
         TopUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +62,8 @@ public class AboutMeActivity extends AppCompatActivity {
                 // Implementasikan proses top-up di sini
                 performTopUp();
             }
-        });
-    }
+        });*/
+
 
     private void displayAccountData(Account account) {
         if (account != null) {
@@ -70,67 +75,42 @@ public class AboutMeActivity extends AppCompatActivity {
     }
 
     private void performTopUp() {
-        String topUpAmount = topUpInput.getText().toString();
-        //mContext = this;
-        //mApiService = UtilsApi.getApiService();
-        mApiService.topUp(Double.valueOf(LoginActivity.loggedAccount.balance), Double.valueOf(topUpAmount)).enqueue(new Callback<BaseResponse<Account>>() {
-
-            @Override
-            public void onResponse(Call<BaseResponse<Account>> call, Response<BaseResponse<Account>> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<BaseResponse<Account>> call, Throwable t) {
-
-            }
-        }};
-        // Mendapatkan nilai top-up dari pengguna (contoh: 10000)
-
-
-        // Memastikan loggedAccount tidak null
-        if (LoginActivity.loggedAccount != null) {
-            // Mendapatkan id akun yang sedang login
-            int accountId = LoginActivity.loggedAccount.id;
-
-            // Menggunakan Retrofit atau ApiService untuk membuat permintaan top-up
-            // Sesuaikan dengan endpoint dan parameter yang diperlukan oleh backend Anda
-            Call<BaseResponse<Account>> call = mApiService.getApiService().topUp(accountId, topUpAmount);
-
-            // Melakukan enqueue untuk asinkronous request
-            call.enqueue(new Callback<BaseResponse<Account>>() {
-                @Override
-                public void onResponse(Call<BaseResponse<Account>> call, Response<BaseResponse<Account>> response) {
-                    if (response.isSuccessful()) {
-                        // Jika request berhasil, update data akun dan tampilkan pesan respons
-                        Account updatedAccount = response.body().payload;
-                        updateAccountData(updatedAccount);
-                        showToast("Top-up successful");
-                    } else {
-                        // Jika request gagal, tampilkan pesan respons error
-                        showToast("Top-up failed: " + response.message());
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<BaseResponse<Account>> call, Throwable t) {
-                    // Jika terjadi kesalahan dalam melakukan request, tampilkan pesan error
-                    showToast("Error: " + t.getMessage());
-                }
-            });
+        String topUpAmountStr = topUpInput.getText().toString();
+        if (topUpAmountStr.isEmpty()) {
+            Toast.makeText(mContext, "Please enter top-up amount", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        double topUpAmount = Double.parseDouble(topUpAmountStr);
+
+        mApiService.topUp(LoginActivity.loggedAccount.id, topUpAmount).enqueue(new Callback<BaseResponse<Double>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<Double>> call, Response<BaseResponse<Double>> response) {
+                if (response.isSuccessful()) {
+                    BaseResponse<Double> responseBody = response.body();
+                    if (responseBody.success) {
+                        // Update balance di layout
+                        balanceTextView.setText(String.valueOf(responseBody.payload));
+                        Toast.makeText(mContext, "Top-up successful", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(mContext, "Top-up failed: " + responseBody.message, Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(mContext, "Top-up failed. Please try again.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<Double>> call, Throwable t) {
+                if (t instanceof IOException) {
+                    Toast.makeText(mContext, "this is an actual network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
+                    // logging probably not necessary
+                }
+                else {
+                    Toast.makeText(mContext, "conversion issue! big problems :(", Toast.LENGTH_SHORT).show();
+                    // todo log to some central bug tracking service
+                }
+            }
+        });
     }
-
-    private void updateAccountData(Account updatedAccount) {
-        // Update data akun setelah berhasil top-up
-        LoginActivity.loggedAccount = updatedAccount;
-        displayAccountData(updatedAccount);
-    }
-
-    private void showToast(String message) {
-        // Menampilkan pesan respons dengan Toast
-        Toast.makeText(AboutMeActivity.this, message, Toast.LENGTH_SHORT).show();
-    }
-
-
 }

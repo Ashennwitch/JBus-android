@@ -15,6 +15,8 @@ import com.HanifNurIlhamSanjayaJBusBR.request.BaseApiService;
 import com.HanifNurIlhamSanjayaJBusBR.model.BaseResponse;
 import com.HanifNurIlhamSanjayaJBusBR.request.UtilsApi;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,13 +25,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private TextView registerNow = null;
     private Button loginButton = null;
-
-
     private BaseApiService mApiService;
     private Context mContext;
     private EditText email, password;
-
-    // Global static variable
     public static Account loggedAccount;
 
     @Override
@@ -51,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(v -> {
             moveActivity(this, MainActivity.class);
         });
+
+        loginButton.setOnClickListener(v->handleLogin());
     }
 
     private void moveActivity(Context ctx, Class <? > cls) {
@@ -103,7 +103,14 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<BaseResponse<Account>> call, Throwable t) {
-                Toast.makeText(mContext, "Problem with the server", Toast.LENGTH_SHORT).show();
+                if (t instanceof IOException) {
+                    Toast.makeText(mContext, "this is an actual network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
+                    // logging probably not necessary
+                }
+                else {
+                    Toast.makeText(mContext, "conversion issue! big problems :(", Toast.LENGTH_SHORT).show();
+                    // todo log to some central bug tracking service
+                }
             }
         });
     }
