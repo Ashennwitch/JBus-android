@@ -17,13 +17,13 @@
         android:layout_height="wrap_content"
         android:background="#00FF4040"
         android:gravity="center"
-        android:text="Halo"
+        android:text="Manage Bus"
         android:textColor="?android:attr/colorActivatedHighlight"
         android:textSize="57sp"
         android:textStyle="bold|italic" />
 
     <ListView
-        android:id="@+id/busListView"
+        android:id="@+id/manageBusListView"
         android:layout_width="match_parent"
         android:layout_height="561dp" />
 
@@ -67,5 +67,7 @@
             android:drawableLeft="@drawable/baseline_arrow_forward_ios_24"
             android:minHeight="0dp" />
     </LinearLayout>
+
+
 
 </LinearLayout>

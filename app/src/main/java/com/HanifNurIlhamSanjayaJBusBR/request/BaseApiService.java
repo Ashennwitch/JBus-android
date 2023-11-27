@@ -27,4 +27,11 @@ public interface BaseApiService {
     Call<BaseResponse<Double>> topUp (
             @Query("id") int id,
             @Query("amount") double amount);
+
+    @POST("account/registerRenter")
+    Call<BaseResponse<Account>> registerRenter(
+            @Query ("id") int id,
+            @Query ("companyName") String companyName,
+            @Query ("address") String address,
+            @Query ("phoneNumber") String phoneNumber);
 }

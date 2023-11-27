@@ -138,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
         int startIndex = page * pageSize;
         int endIndex = Math.min(startIndex + pageSize, listBus.size());
         List<Bus> paginatedList = listBus.subList(startIndex, endIndex);
-        // Tampilkan paginatedList ke listview
-        // seperti yang sudah kalian lakukan sebelumnya,
-        // menggunakan array adapter.
+        BusArrayAdapter busArrayAdapter = (BusArrayAdapter) busListView.getAdapter();
+        ListView busListView = findViewById(R.id.busListView);
+        busListView.setAdapter(busArrayAdapter);
     }
 
 }

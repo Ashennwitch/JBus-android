@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".YourActivity">
+
+    <!-- Judul -->
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Bus"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Sub Judul -->
+    <TextView
+        android:id="@+id/textViewSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add or edit your bus"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- EditText Bus Name -->
+    <EditText
+        android:id="@+id/editTextBusName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Bus Name"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- EditText Capacity -->
+    <EditText
+        android:id="@+id/editTextCapacity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Capacity"
+        app:layout_constraintTop_toBottomOf="@+id/editTextBusName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- EditText Price -->
+    <EditText
+        android:id="@+id/editTextPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCapacity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Spinner 1 -->
+    <TextView
+        android:id="@+id/textViewSpinner1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Bus Type"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPrice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewLogo1"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewLogo1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/baseline_directions_bus_24.xml"
+        app:layout_constraintTop_toTopOf="@+id/textViewSpinner1"
+        app:layout_constraintStart_toEndOf="@+id/textViewSpinner1"
+        app:layout_constraintEnd_toStartOf="@+id/spinner1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/textViewSpinner1"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLogo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Spinner 2 -->
+    <TextView
+        android:id="@+id/textViewSpinner2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Departure"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSpinner1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewLogo2"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewLogo2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:srcCompat="@drawable/ic_logo2"
+        app:layout_constraintTop_toTopOf="@+id/textViewSpinner2"
+        app:layout_constraintStart_toEndOf="@+id/textViewSpinner2"
+        app:layout_constraintEnd_toStartOf="@+id/spinner2"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/textViewSpinner2"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLogo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Spinner 3 -->
+    <TextView
+        android:id="@+id/textViewSpinner3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Arrival"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSpinner2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewLogo3"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <ImageView
+        android:id="@+id/imageViewLogo3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:srcCompat="@drawable/ic_logo3"
+        app:layout_constraintTop_toTopOf="@+id/textViewSpinner3"
+        app:layout_constraintStart_toEndOf="@+id/textViewSpinner3"
+        app:layout_constraintEnd_toStartOf="@+id/spinner3"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"/>
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/textViewSpinner3"
+        app:layout_constraintStart_toEndOf="@+id/imageViewLogo3"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Checkbox Group 1 -->
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="AC"
+        app:layout_constraintTop_toBottomOf="@+id/spinner3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox2"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="4dp"/>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Wifi"
+        app:layout_constraintTop_toTopOf="@+id/checkBox1"
+        app:layout_constraintStart_toEndOf="@+id/checkBox1"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox3"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"/>
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Toilet"
+        app:layout_constraintTop_toTopOf="@+id/checkBox2"
+        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Checkbox Group 2 -->
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="LCD TV"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox5"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="4dp"/>
+
+    <CheckBox
+        android:id="@+id/checkBox5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Coolbox"
+        app:layout_constraintTop_toTopOf="@+id/checkBox4"
+        app:layout_constraintStart_toEndOf="@+id/checkBox4"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox6"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"/>
+
+    <CheckBox
+        android:id="@+id/checkBox6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Lunch"
+        app:layout_constraintTop_toTopOf="@+id/checkBox5"
+        app:layout_constraintStart_toEndOf="@+id/checkBox5"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Checkbox Group 3 -->
+    <CheckBox
+        android:id="@+id/checkBox7"
+        android:layout_width="121dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:text="Large Baggage"
+        app:layout_constraintEnd_toStartOf="@+id/checkBox8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+
+    <CheckBox
+        android:id="@+id/checkBox8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Electric Socket"
+        app:layout_constraintTop_toTopOf="@+id/checkBox7"
+        app:layout_constraintStart_toEndOf="@+id/checkBox7"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="16dp"/>
+
+    <!-- Button Add -->
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="16dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

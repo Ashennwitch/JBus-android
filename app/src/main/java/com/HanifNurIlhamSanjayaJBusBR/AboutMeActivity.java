@@ -3,6 +3,7 @@ package com.HanifNurIlhamSanjayaJBusBR;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.HanifNurIlhamSanjayaJBusBR.model.Account;
-
 import com.HanifNurIlhamSanjayaJBusBR.model.BaseResponse;
 import com.HanifNurIlhamSanjayaJBusBR.request.BaseApiService;
 import com.HanifNurIlhamSanjayaJBusBR.request.UtilsApi;
@@ -53,17 +53,41 @@ public class AboutMeActivity extends AppCompatActivity {
         displayAccountData(LoginActivity.loggedAccount);
 
         TopUp.setOnClickListener(v -> performTopUp());
-    }
-/*
-        // Tambahkan listener untuk tombol top-up
-        TopUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Implementasikan proses top-up di sini
-                performTopUp();
-            }
-        });*/
 
+        if (LoginActivity.loggedAccount.company != null) {
+            // Case: Account is a renter
+            showRenterSection();
+
+            // Listener for the button to navigate to ManageBusActivity
+            Button manageBusButton = findViewById(R.id.manageBus);
+            manageBusButton.setOnClickListener(v -> {
+                Intent intent = new Intent(AboutMeActivity.this, ManageBusActivity.class);
+                startActivity(intent);
+            });
+        }  else {
+        // Case: Account is not a renter
+            showNonRenterSection();
+
+            // Listener for the button to navigate to RegisterRenterActivity
+            TextView registerRenterButton = findViewById(R.id.notRegisteryet);
+            registerRenterButton.setOnClickListener(v -> {
+                Intent intent = new Intent(AboutMeActivity.this, RegisterRenterActivity.class);
+                startActivity(intent);
+            });
+        }
+    }
+
+    private void showRenterSection() {
+        // Show or hide views relevant to a renter
+        findViewById(R.id.renterSection).setVisibility(View.VISIBLE);
+        findViewById(R.id.nonRenterSection).setVisibility(View.GONE);
+    }
+
+    private void showNonRenterSection() {
+        // Show or hide views relevant to a non-renter
+        findViewById(R.id.renterSection).setVisibility(View.GONE);
+        findViewById(R.id.nonRenterSection).setVisibility(View.VISIBLE);
+    }
 
     private void displayAccountData(Account account) {
         if (account != null) {
