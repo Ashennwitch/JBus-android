@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".YourActivity">
+    android:layout_height="match_parent">
 
     <!-- Judul -->
     <TextView
@@ -85,12 +84,13 @@
         android:id="@+id/imageViewLogo1"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/baseline_directions_bus_24.xml"
+        app:srcCompat="@drawable/baseline_directions_bus_24"
         app:layout_constraintTop_toTopOf="@+id/textViewSpinner1"
         app:layout_constraintStart_toEndOf="@+id/textViewSpinner1"
         app:layout_constraintEnd_toStartOf="@+id/spinner1"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginEnd="8dp"
+        app:tint="@color/black"/>
 
     <Spinner
         android:id="@+id/spinner1"
@@ -118,12 +118,13 @@
         android:id="@+id/imageViewLogo2"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        app:srcCompat="@drawable/ic_logo2"
+        app:srcCompat="@drawable/baseline_home_24"
         app:layout_constraintTop_toTopOf="@+id/textViewSpinner2"
         app:layout_constraintStart_toEndOf="@+id/textViewSpinner2"
         app:layout_constraintEnd_toStartOf="@+id/spinner2"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginEnd="8dp"
+        app:tint="@color/black"/>
 
     <Spinner
         android:id="@+id/spinner2"
@@ -151,12 +152,13 @@
         android:id="@+id/imageViewLogo3"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        app:srcCompat="@drawable/ic_logo3"
+        app:srcCompat="@drawable/baseline_arrow_forward_24"
         app:layout_constraintTop_toTopOf="@+id/textViewSpinner3"
         app:layout_constraintStart_toEndOf="@+id/textViewSpinner3"
         app:layout_constraintEnd_toStartOf="@+id/spinner3"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginEnd="8dp"
+        app:tint="@color/black"/>
 
     <Spinner
         android:id="@+id/spinner3"

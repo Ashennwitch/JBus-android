@@ -2,6 +2,12 @@ package com.HanifNurIlhamSanjayaJBusBR.request;
 
 import com.HanifNurIlhamSanjayaJBusBR.model.BaseResponse;
 import com.HanifNurIlhamSanjayaJBusBR.model.Account;
+import com.HanifNurIlhamSanjayaJBusBR.model.BusType;
+import com.HanifNurIlhamSanjayaJBusBR.model.Facility;
+import com.HanifNurIlhamSanjayaJBusBR.model.Station;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -34,4 +40,18 @@ public interface BaseApiService {
             @Query ("companyName") String companyName,
             @Query ("address") String address,
             @Query ("phoneNumber") String phoneNumber);
+
+    @GET("station/getAll")
+    Call<List<Station>> getAllStation();
+
+    @POST("bus/create")
+    Call<BaseResponse<Account>> create (
+            @Query("accountId") int accountId,
+            @Query("name") String name,
+            @Query("capacity") int capacity,
+            @Query("facilities") List<Facility> facilities,
+            @Query("busType") BusType busType,
+            @Query("price") int price,
+            @Query("stationDepartureId") int stationDepartureId,
+            @Query("stationArrivalId") int stationArrivalId);
 }
