@@ -39,15 +39,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        email = findViewById(R.id.email_editText);
+        password = findViewById(R.id.password_editText);
         registerNow = findViewById(R.id.donthaveanaccount_textview);
         loginButton = findViewById(R.id.login_button);
 
         registerNow.setOnClickListener(v -> {
             moveActivity(this, RegisterActivity.class);
-        });
-
-        loginButton.setOnClickListener(v -> {
-            moveActivity(this, MainActivity.class);
         });
 
         loginButton.setOnClickListener(v->handleLogin());
@@ -59,14 +57,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void viewToast(Context ctx, String message) {
-        Toast.makeText(ctx, message, Toast. LENGTH_SHORT) . show ();
+        Toast.makeText(ctx, message, Toast. LENGTH_SHORT).show ();
     }
 
     private void handleLogin() {
-        // Handling empty field
         String emailS = email.getText().toString();
         String passwordS = password.getText().toString();
 
+        // Handling empty field
         if (emailS.isEmpty() || passwordS.isEmpty()) {
             Toast.makeText(mContext, "Field cannot be empty", Toast.LENGTH_SHORT).show();
             return;

@@ -269,6 +269,7 @@ public class AddBusActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Station>> call, Throwable t) {
                 // Handle failure, if needed
+                Toast.makeText(mContext, "Failed to connect to the server", Toast.LENGTH_SHORT).show();
             }
         });
     }

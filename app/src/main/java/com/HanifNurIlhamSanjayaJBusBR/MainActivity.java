@@ -1,7 +1,5 @@
 package com.HanifNurIlhamSanjayaJBusBR;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -13,62 +11,60 @@ import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ArrayAdapter;
-import android.os.Bundle;
-
-import java.util.ArrayList;
-import java.util.List;
-import com.HanifNurIlhamSanjayaJBusBR.R;
+import android.widget.Toast;
+import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
 import com.HanifNurIlhamSanjayaJBusBR.model.Bus;
+import com.HanifNurIlhamSanjayaJBusBR.request.BaseApiService;
+import com.HanifNurIlhamSanjayaJBusBR.request.UtilsApi;
+import java.io.IOException;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+    private Context mContext;
     private Button[] btns;
     private int currentPage = 0;
-    private int pageSize = 12; // kalian dapat bereksperimen dengan field ini
+    private int pageSize = 12; // You can experiment with this field
     private int listSize;
     private int noOfPages;
-    private List<Bus> listBus = new ArrayList<>();
-    private Button prevButton = null;
-    private Button nextButton = null;
-    private ListView busListView = null;
-    private HorizontalScrollView pageScroll = null;
+    private List<Bus> listBus;
+    private Button prevButton;
+    private Button nextButton;
+    private ListView busListView;
+    private HorizontalScrollView pageScroll;
+    private BaseApiService mApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ListView busListView = findViewById(R.id.busListView);
 
-        // Mendapatkan data Bus
-        List<Bus> busList = Bus.sampleBusList(10);
-
-        // Membuat objek dari BusArrayAdapter
-        BusArrayAdapter busArrayAdapter = new BusArrayAdapter(this, busList);
-
-        // Menetapkan adapter untuk ListView
-        busListView.setAdapter(busArrayAdapter);
-
-        // hubungkan komponen dengan ID nya
-        prevButton = findViewById(R.id.prev_page);
-
-        nextButton = findViewById(R.id.next_page);
-        pageScroll = findViewById(R.id.page_number_scroll);
-
-        // membuat sample list
-        listBus = Bus.sampleBusList(20);
-        listSize = listBus.size();
-        // construct the footer
+        busListView = findViewById(R.id.busListView);
+        mApiService = UtilsApi.getApiService();
+        mContext = this;
+        // Construct the footer
         paginationFooter();
+
+        // Initial page load
         goToPage(currentPage);
-        // listener untuk button prev dan button
+
+        // Set listeners for the previous and next buttons
         prevButton.setOnClickListener(v -> {
-            currentPage = currentPage != 0? currentPage-1 : 0;
+            currentPage = currentPage != 0 ? currentPage - 1 : 0;
             goToPage(currentPage);
         });
+
         nextButton.setOnClickListener(v -> {
-            currentPage = currentPage != noOfPages -1? currentPage+1 : currentPage;
+            currentPage = currentPage != noOfPages - 1 ? currentPage + 1 : currentPage;
             goToPage(currentPage);
         });
+
+        // Fetch and display all buses
+        getAllBuses();
     }
 
     @Override
@@ -80,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.person_button) {// Memulai intent untuk membuka AboutMeActivity
+        if (item.getItemId() == R.id.person_button) {
+            // Start intent to open AboutMeActivity
             Intent intent = new Intent(this, AboutMeActivity.class);
             startActivity(intent);
             return true;
@@ -89,30 +86,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void paginationFooter() {
-        int val = listSize % pageSize;
-        val = val == 0 ? 0 : 1;
-        noOfPages = listSize / pageSize + val;
         LinearLayout ll = findViewById(R.id.btn_layout);
         btns = new Button[noOfPages];
-        if (noOfPages <= 6) {
-            ((FrameLayout.LayoutParams) ll.getLayoutParams()).gravity =
-                    Gravity.CENTER;
-        }
+
         for (int i = 0; i < noOfPages; i++) {
-            btns[i]=new Button(this);
+            btns[i] = new Button(this);
             btns[i].setBackgroundColor(getResources().getColor(android.R.color.transparent));
-            btns[i].setText(""+(i+1));
-        // ganti dengan warna yang kalian mau
+            btns[i].setText("" + (i + 1));
             btns[i].setTextColor(getResources().getColor(R.color.black));
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(100,
-                    100);
+
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(100, 100);
             ll.addView(btns[i], lp);
+
             final int j = i;
             btns[j].setOnClickListener(v -> {
                 currentPage = j;
                 goToPage(j);
             });
         }
+
+        prevButton = findViewById(R.id.prev_page);
+        nextButton = findViewById(R.id.next_page);
+        pageScroll = findViewById(R.id.page_number_scroll);
     }
 
     private void goToPage(int index) {
@@ -138,9 +133,51 @@ public class MainActivity extends AppCompatActivity {
         int startIndex = page * pageSize;
         int endIndex = Math.min(startIndex + pageSize, listBus.size());
         List<Bus> paginatedList = listBus.subList(startIndex, endIndex);
-        BusArrayAdapter busArrayAdapter = (BusArrayAdapter) busListView.getAdapter();
-        ListView busListView = findViewById(R.id.busListView);
-        busListView.setAdapter(busArrayAdapter);
+        BusViewAdapter BusViewAdapter = new BusViewAdapter(this, paginatedList);
+        busListView.setAdapter(BusViewAdapter);
     }
 
+    private void getAllBuses() {
+        mApiService.getAllBus().enqueue(new Callback<List<Bus>>() {
+            @Override
+            public void onResponse(Call<List<Bus>> call, Response<List<Bus>> response) {
+                if (response.isSuccessful()) {
+                    listBus = response.body();
+                    listSize = listBus.size();
+                    // Update the number of pages and recreate pagination
+                    recreatePagination();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Bus>> call, Throwable t) {
+                // Handle failure, if needed
+                if (t instanceof IOException) {
+                    Toast.makeText(mContext, "this is an actual network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
+                    // logging probably not necessary
+                }
+                else {
+                    Toast.makeText(mContext, "conversion issue! big problems :(", Toast.LENGTH_SHORT).show();
+                    // todo log to some central bug tracking service
+                }
+            }
+        });
+    }
+
+    private void recreatePagination() {
+        // Recreate pagination based on the updated list size
+        int val = listSize % pageSize;
+        val = val == 0 ? 0 : 1;
+        noOfPages = listSize / pageSize + val;
+
+        // Remove existing buttons
+        LinearLayout ll = findViewById(R.id.btn_layout);
+        ll.removeAllViews();
+
+        // Construct the new footer
+        paginationFooter();
+
+        // Load the first page after recreation
+        goToPage(currentPage);
+    }
 }

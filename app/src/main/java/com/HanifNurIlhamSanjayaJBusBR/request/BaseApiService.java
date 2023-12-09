@@ -2,6 +2,7 @@ package com.HanifNurIlhamSanjayaJBusBR.request;
 
 import com.HanifNurIlhamSanjayaJBusBR.model.BaseResponse;
 import com.HanifNurIlhamSanjayaJBusBR.model.Account;
+import com.HanifNurIlhamSanjayaJBusBR.model.Bus;
 import com.HanifNurIlhamSanjayaJBusBR.model.BusType;
 import com.HanifNurIlhamSanjayaJBusBR.model.Facility;
 import com.HanifNurIlhamSanjayaJBusBR.model.Station;
@@ -54,4 +55,12 @@ public interface BaseApiService {
             @Query("price") int price,
             @Query("stationDepartureId") int stationDepartureId,
             @Query("stationArrivalId") int stationArrivalId);
+
+    @GET("bus/getAll")
+    Call<List<Bus>> getAllBus();
+
+    @GET("bus/getMyBus")
+    Call<List<Bus>> getMyBus(
+            @Query("accountId") int accountId);
+
 }

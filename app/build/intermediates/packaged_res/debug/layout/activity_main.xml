@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:background="#00FF4040"
         android:gravity="center"
-        android:text="Halo"
+        android:text="Hii!"
         android:textColor="?android:attr/colorActivatedHighlight"
         android:textSize="57sp"
         android:textStyle="bold|italic" />
@@ -67,7 +67,5 @@
             android:drawableLeft="@drawable/baseline_arrow_forward_ios_24"
             android:minHeight="0dp" />
     </LinearLayout>
-
-
 
 </LinearLayout>
