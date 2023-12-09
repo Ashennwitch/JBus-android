@@ -1,23 +1,25 @@
 package com.HanifNurIlhamSanjayaJBusBR;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.content.Context;
+import android.view.Gravity;
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.FrameLayout;
 import com.HanifNurIlhamSanjayaJBusBR.model.Bus;
 import com.HanifNurIlhamSanjayaJBusBR.request.BaseApiService;
 import com.HanifNurIlhamSanjayaJBusBR.request.UtilsApi;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         busListView = findViewById(R.id.busListView);
         mApiService = UtilsApi.getApiService();
         mContext = this;
+
         // Construct the footer
         paginationFooter();
 
@@ -62,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             currentPage = currentPage != noOfPages - 1 ? currentPage + 1 : currentPage;
             goToPage(currentPage);
         });
-
         // Fetch and display all buses
         getAllBuses();
     }
@@ -108,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         prevButton = findViewById(R.id.prev_page);
         nextButton = findViewById(R.id.next_page);
         pageScroll = findViewById(R.id.page_number_scroll);
+
     }
 
     private void goToPage(int index) {
@@ -133,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
         int startIndex = page * pageSize;
         int endIndex = Math.min(startIndex + pageSize, listBus.size());
         List<Bus> paginatedList = listBus.subList(startIndex, endIndex);
-        BusViewAdapter BusViewAdapter = new BusViewAdapter(this, paginatedList);
-        busListView.setAdapter(BusViewAdapter);
+        BusViewAdapter busArrayAdapter = new BusViewAdapter(this, convertBusesToBusViews(paginatedList));
+        busListView.setAdapter(busArrayAdapter);
     }
 
     private void getAllBuses() {
@@ -153,12 +156,9 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Bus>> call, Throwable t) {
                 // Handle failure, if needed
                 if (t instanceof IOException) {
-                    Toast.makeText(mContext, "this is an actual network failure :( inform the user and possibly retry", Toast.LENGTH_SHORT).show();
-                    // logging probably not necessary
-                }
-                else {
-                    Toast.makeText(mContext, "conversion issue! big problems :(", Toast.LENGTH_SHORT).show();
-                    // todo log to some central bug tracking service
+                    Toast.makeText(mContext, "Network failure. Please inform the user and possibly retry.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(mContext, "Conversion issue. Big problems.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -179,5 +179,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Load the first page after recreation
         goToPage(currentPage);
+    }
+
+    private ArrayList<BusView> convertBusesToBusViews(List<Bus> buses) {
+        // Convert the list of buses to a list of BusViews
+        ArrayList<BusView> busViews = new ArrayList<BusView>();
+        for (Bus bus : buses) {
+            // Assuming BusView has a constructor that matches the fields of Bus
+            BusView busView = new BusView(bus.getId(), bus.getName(), bus.getDepartureStation().toString(), bus.getDestination().toString());
+            busViews.add(busView);
+        }
+        return busViews;
     }
 }
