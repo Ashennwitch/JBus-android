@@ -32,6 +32,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Activity yang menambahkan Bus.
+ *
+ * @author Hanif Nur Ilham Sanjaya
+ */
+
 public class AddBusActivity extends AppCompatActivity {
 
     // Buat field berikut, menjadikan enum class BusType ke array.

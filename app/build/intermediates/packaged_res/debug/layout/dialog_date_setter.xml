@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         app:endIconDrawable="@drawable/baseline_calendar_month_24"
-        app:endIconTint="@color/black"
+        app:endIconTint="#ED5737"
         app:boxStrokeColor="@color/black"
         android:textColorHint="@color/black"
         app:endIconMode="custom">
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         app:endIconDrawable="@drawable/baseline_watch_later_24"
-        app:endIconTint="@color/black"
+        app:endIconTint="#ED5737"
         app:boxStrokeColor="@color/black"
         android:textColorHint="@color/black"
         app:endIconMode="custom">
@@ -58,6 +58,6 @@
         android:layout_gravity="end"
         android:enabled="true"
         android:text="Save"
-        android:textColor="@color/black"
+        android:textColor="#ED5737"
         android:textAllCaps="false" />
 </LinearLayout>

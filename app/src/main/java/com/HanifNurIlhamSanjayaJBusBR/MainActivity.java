@@ -1,11 +1,12 @@
 package com.HanifNurIlhamSanjayaJBusBR;
-
+import android.view.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -66,6 +67,24 @@ public class MainActivity extends AppCompatActivity {
 
         // Fetch and display all buses
         fetchData();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected bus
+                Bus selectedBus = (Bus) parent.getItemAtPosition(position);
+
+                // Create an intent to start BusDetailActivity
+                Intent intent = new Intent(MainActivity.this, BusDetailActivity.class);
+
+                // Pass the ID of the selected bus to BusDetailActivity
+                intent.putExtra("BUS_ID", selectedBus.getId());
+
+                // Start BusDetailActivity
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -77,14 +96,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.person_button) {
-            // Start intent to open AboutMeActivity
-            Intent intent = new Intent(MainActivity.this, AboutMeActivity.class);
-            startActivity(intent);
-            return true;
+        switch (item.getItemId()) {
+            case R.id.search_button:
+                // Handle search button click
+                break;
+            case R.id.person_button:
+                // Handle person button click
+                // Start intent to open AboutMeActivity
+                Intent intentA = new Intent(MainActivity.this, AboutMeActivity.class);
+                startActivity(intentA);
+                break;
+            case R.id.payments_button:
+                // Handle payments button click
+                // Start intent to open PaymentsActivity
+                Intent intentP = new Intent(MainActivity.this, PaymentsActivity.class);
+                startActivity(intentP);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
+
 
     private void paginationFooter() {
         LinearLayout ll = findViewById(R.id.btn_layout);

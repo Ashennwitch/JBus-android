@@ -1,199 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AboutMeActivity"
-    android:orientation="vertical">
+    android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/initial_name"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:layout_marginVertical="24dp"
-            android:background="@drawable/circle"
-            android:backgroundTint="@color/black"
-            android:textColor="@color/white"
-            android:text="P"
-            android:textSize="48dp"
-            android:gravity="center"
-            />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginHorizontal="24dp"
-            android:layout_marginVertical="24dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="16sp"
-                    android:text="USERNAME" />
-
-                <TextView
-                    android:id="@+id/username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    tools:text="-" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="16sp"
-                    android:text="EMAIL"
-                    />
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    tools:text="-" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="BALANCE"
-                    android:textSize="16sp"
-                    />
-
-                <TextView
-                    android:id="@+id/balance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    tools:text="-" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/top_up_amount"
-            android:layout_width="229dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="Top Up Amount"
-            android:textColor="@color/black"
-            android:inputType="number"
-            android:minHeight="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.197"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.296" />
-
-        <Button
-            android:id="@+id/top_up_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" TOP UP"
-            app:cornerRadius="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.839"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.296" />
-
-    </LinearLayout>
-
-    <androidx.cardview.widget.CardView
+    <TextView
+        android:id="@+id/busNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginVertical="36dp">
+        android:text="Bus Name"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="36dp"
-            android:gravity="center"
-            android:orientation="vertical">
+    <TextView
+        android:id="@+id/departureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/busNameTextView"
+        android:layout_marginTop="8dp"
+        android:text="Departure Station"
+        android:textSize="18sp"/>
 
-            <TextView
-                android:id="@+id/status_renter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="You're not registered as a renter."/>
+    <TextView
+        android:id="@+id/destinationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureTextView"
+        android:layout_marginTop="8dp"
+        android:text="Arrival Station"
+        android:textSize="18sp"/>
 
-            <TextView
-                android:id="@+id/register_company"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="Register your Company"
-                android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/capacityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/destinationTextView"
+        android:layout_marginTop="8dp"
+        android:text="Capacity: "
+        android:textSize="18sp"/>
 
-            <Button
-                android:id="@+id/button_manage_bus"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:backgroundTint="@color/black"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="12dp"
-                android:text="Manage Bus"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                app:cornerRadius="21dp" />
+    <TextView
+        android:id="@+id/facilitiesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/capacityTextView"
+        android:layout_marginTop="8dp"
+        android:text="Facilities: "
+        android:textSize="18sp"/>
 
-        </LinearLayout>
+    <TextView
+        android:id="@+id/busTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/facilitiesTextView"
+        android:layout_marginTop="8dp"
+        android:text="Bus Type: "
+        android:textSize="18sp"/>
 
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/busTypeTextView"
+        android:layout_marginTop="8dp"
+        android:text="Price: "
+        android:textSize="18sp"/>
 
-
-</LinearLayout>
+</RelativeLayout>

@@ -12,6 +12,12 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Adapter yang menampilkan data ke listView.
+ *
+ * @author Hanif Nur Ilham Sanjaya
+ */
+
 public class BusViewAdapter extends ArrayAdapter<BusView> {
 
     public BusViewAdapter(@NonNull Context context, ArrayList<BusView> arrayList) {

@@ -22,6 +22,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Activity yang menampilkan informasi akun pengguna.
+ *
+ * @author Hanif Nur Ilham Sanjaya
+ */
+
 public class AboutMeActivity extends AppCompatActivity {
     private TextView initialTextView, nameTextView, emailTextView, balanceTextView;
     private Button TopUp, manageBus;

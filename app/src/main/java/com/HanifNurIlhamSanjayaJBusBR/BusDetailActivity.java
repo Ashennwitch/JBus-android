@@ -1,52 +1,95 @@
 package com.HanifNurIlhamSanjayaJBusBR;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import com.HanifNurIlhamSanjayaJBusBR.model.Bus;
+import com.HanifNurIlhamSanjayaJBusBR.request.BaseApiService;
+import com.HanifNurIlhamSanjayaJBusBR.request.UtilsApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * Activity yang menampilkan detail informasi Bus.
+ *
+ * @author Hanif Nur Ilham Sanjaya
+ */
 
 public class BusDetailActivity extends AppCompatActivity {
-
+    private TextView busNameTextView, departureTextView, destinationTextView, capacityTextView, facilitiesTextView, busTypeTextView, priceTextView;
+    private BaseApiService mApiService;
+    private Button bookNow;
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_detail);
 
-        // Mendapatkan data bus yang dikirim dari MainActivity
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String busName = extras.getString("busName");
-            String departure = extras.getString("departure");
-            String arrival = extras.getString("arrival");
-            int capacity = extras.getInt("capacity");
-            String facilities = extras.getString("facilities");
-            String busType = extras.getString("busType");
-            double price = extras.getDouble("price");
+        // Initialize views
+        busNameTextView = findViewById(R.id.busNameTextView);
+        departureTextView = findViewById(R.id.departureTextView);
+        destinationTextView = findViewById(R.id.destinationTextView);
+        capacityTextView = findViewById(R.id.capacityTextView);
+        facilitiesTextView = findViewById(R.id.facilitiesTextView);
+        busTypeTextView = findViewById(R.id.busTypeTextView);
+        priceTextView = findViewById(R.id.priceTextView);
+        bookNow = findViewById(R.id.bookNowButton);
+        // Get bus ID from intent
+        int busId = getIntent().getIntExtra("BUS_ID", 0);
 
-            // Menampilkan data bus di layout activity_bus_detail.xml
-            displayBusDetails(busName, departure, arrival, capacity, facilities, busType, price);
-        }
+        // Fetch and display bus details
+        fetchBusDetails(busId);
+
+        bookNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an intent to start PaymentActivity
+                Intent intent = new Intent(BusDetailActivity.this, PaymentsActivityActivity.class);
+
+                // Pass the ID of the selected bus and the account ID to PaymentActivity
+                intent.putExtra("BUS_ID", bus.getId());
+                intent.putExtra("ACCOUNT_ID", LoginActivity.loggedAccount.id);
+
+                // Start PaymentActivity
+                startActivity(intent);
+            }
+        });
+
     }
 
-    private void displayBusDetails(String busName, String departure, String arrival,
-                                   int capacity, String facilities, String busType, double price) {
-        // Menyambungkan ke elemen-elemen XML di activity_bus_detail.xml
-        TextView busNameTextView = findViewById(R.id.busNameTextView);
-        TextView departureTextView = findViewById(R.id.departureTextView);
-        TextView arrivalTextView = findViewById(R.id.destinationTextView);
-        TextView capacityTextView = findViewById(R.id.capacityTextView);
-        TextView facilitiesTextView = findViewById(R.id.facilitiesTextView);
-        TextView busTypeTextView = findViewById(R.id.busTypeTextView);
-        TextView priceTextView = findViewById(R.id.priceTextView);
+    private void fetchBusDetails(int busId) {
+        mApiService = UtilsApi.getApiService();
+        Call<Bus> call = mApiService.getBusbyId(busId);
+        call.enqueue(new Callback<Bus>() {
+            @Override
+            public void onResponse(Call<Bus> call, Response<Bus> response) {
+                if (response.isSuccessful()) {
+                    Bus bus = response.body();
 
-        // Menetapkan nilai data bus ke elemen-elemen XML
-        busNameTextView.setText(busName);
-        departureTextView.setText("Departure: " + departure);
-        arrivalTextView.setText("Arrival: " + arrival);
-        capacityTextView.setText("Capacity: " + capacity);
-        facilitiesTextView.setText("Facilities: " + facilities);
-        busTypeTextView.setText("Bus Type: " + busType);
-        priceTextView.setText("Price: $" + price);
+                    // Display bus details
+                    busNameTextView.setText(bus.getName());
+                    departureTextView.setText(bus.getDepartureStation().stationName);
+                    destinationTextView.setText(bus.getDestination().stationName);
+                    capacityTextView.setText(String.valueOf(bus.getCapacity()));
+                    facilitiesTextView.setText(bus.getFacilities().toString());
+                    busTypeTextView.setText(bus.getBusType().toString());
+                    priceTextView.setText(String.valueOf(bus.getPrice()));
+                } else {
+                    // Handle error response
+                    Toast.makeText(BusDetailActivity.this, "Error: " + response.message(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Bus> call, Throwable t) {
+                // Handle failure
+                Log.e("BusDetailActivity", "Failed to fetch data: " + t.getMessage());
+                Toast.makeText(BusDetailActivity.this, "Failed to fetch data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
-

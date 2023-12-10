@@ -21,6 +21,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Activity yang menangani mekanisme login.
+ *
+ * @author Hanif Nur Ilham Sanjaya
+ */
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextView registerNow = null;

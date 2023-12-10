@@ -2913,6 +2913,7 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bookNowButton
 id bottom
 id bounce
 id bounceBoth
@@ -2920,16 +2921,18 @@ id bounceEnd
 id bounceStart
 id btn_layout
 id busImageView
+id busInfoLayout
 id busListView
 id busNameTextView
+id busTypeTextView
 id bus_name
 id buttonAdd
 id buttonPanel
 id buttonSaveDate
-id button_manage_bus
 id cache_measures
 id callMeasure
 id cancel_button
+id capacityTextView
 id cardView
 id carryVelocity
 id center
@@ -3028,6 +3031,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id facilitiesTextView
 id fade
 id fill
 id fill_horizontal
@@ -3074,7 +3078,6 @@ id included
 id indeterminate
 id info
 id initial
-id initial_name
 id invisible
 id inward
 id italic
@@ -3205,13 +3208,13 @@ id position
 id postLayout
 id pressed
 id prev_page
+id priceTextView
 id progress_circular
 id progress_horizontal
 id radio
 id ratio
 id rectangles
 id registerButton
-id register_company
 id register_form
 id renterSection
 id reverseSawtooth
@@ -3297,7 +3300,6 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
-id status_renter
 id stop
 id stretch
 id submenuarrow
@@ -3342,6 +3344,7 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id titleTextView
 id title_template
 id toggle
 id top
@@ -3349,8 +3352,6 @@ id topPanel
 id topUpAmountEditText
 id topUpButton
 id topUpLayout
-id top_up_amount
-id top_up_button
 id touch_outside
 id transitionToEnd
 id transitionToStart

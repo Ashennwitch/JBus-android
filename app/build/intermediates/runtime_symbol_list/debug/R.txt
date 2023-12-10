@@ -2912,6 +2912,7 @@ int id beginOnFirstDraw 0x7f08005e
 int id beginning 0x7f08005f
 int id bestChoice 0x7f080060
 int id blocking 0x7f080061
+int id bookNowButton 0x7f08023b
 int id bottom 0x7f080062
 int id bounce 0x7f080063
 int id bounceBoth 0x7f080064
@@ -2919,16 +2920,18 @@ int id bounceEnd 0x7f080065
 int id bounceStart 0x7f080066
 int id btn_layout 0x7f080067
 int id busImageView 0x7f080068
+int id busInfoLayout 0x7f08023c
 int id busListView 0x7f080069
 int id busNameTextView 0x7f08006a
+int id busTypeTextView 0x7f08023d
 int id bus_name 0x7f08006b
 int id buttonAdd 0x7f08006c
 int id buttonPanel 0x7f08006d
 int id buttonSaveDate 0x7f08006e
-int id button_manage_bus 0x7f080235
 int id cache_measures 0x7f08006f
 int id callMeasure 0x7f080070
 int id cancel_button 0x7f080071
+int id capacityTextView 0x7f08023e
 int id cardView 0x7f080072
 int id carryVelocity 0x7f080073
 int id center 0x7f080074
@@ -3027,6 +3030,7 @@ int id enterAlwaysCollapsed 0x7f0800d0
 int id exitUntilCollapsed 0x7f0800d1
 int id expand_activities_button 0x7f0800d2
 int id expanded_menu 0x7f0800d3
+int id facilitiesTextView 0x7f08023f
 int id fade 0x7f0800d4
 int id fill 0x7f0800d5
 int id fill_horizontal 0x7f0800d6
@@ -3073,7 +3077,6 @@ int id included 0x7f0800fe
 int id indeterminate 0x7f0800ff
 int id info 0x7f080100
 int id initial 0x7f080101
-int id initial_name 0x7f080236
 int id invisible 0x7f080102
 int id inward 0x7f080103
 int id italic 0x7f080104
@@ -3204,13 +3207,13 @@ int id position 0x7f080180
 int id postLayout 0x7f080181
 int id pressed 0x7f080182
 int id prev_page 0x7f080183
+int id priceTextView 0x7f080240
 int id progress_circular 0x7f080184
 int id progress_horizontal 0x7f080185
 int id radio 0x7f080186
 int id ratio 0x7f080187
 int id rectangles 0x7f080188
 int id registerButton 0x7f080189
-int id register_company 0x7f080237
 int id register_form 0x7f08018a
 int id renterSection 0x7f08018b
 int id reverseSawtooth 0x7f08018c
@@ -3296,7 +3299,6 @@ int id startToEnd 0x7f0801db
 int id startVertical 0x7f0801dc
 int id staticLayout 0x7f0801dd
 int id staticPostLayout 0x7f0801de
-int id status_renter 0x7f080238
 int id stop 0x7f0801df
 int id stretch 0x7f0801e0
 int id submenuarrow 0x7f0801e1
@@ -3341,6 +3343,7 @@ int id textinput_suffix_text 0x7f080207
 int id time 0x7f080208
 int id title 0x7f080209
 int id titleDividerNoCustom 0x7f08020a
+int id titleTextView 0x7f080241
 int id title_template 0x7f08020b
 int id toggle 0x7f08020c
 int id top 0x7f08020d
@@ -3348,8 +3351,6 @@ int id topPanel 0x7f08020e
 int id topUpAmountEditText 0x7f08020f
 int id topUpButton 0x7f080210
 int id topUpLayout 0x7f080211
-int id top_up_amount 0x7f080239
-int id top_up_button 0x7f08023a
 int id touch_outside 0x7f080212
 int id transitionToEnd 0x7f080213
 int id transitionToStart 0x7f080214

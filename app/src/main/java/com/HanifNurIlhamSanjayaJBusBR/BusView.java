@@ -6,6 +6,12 @@ public class BusView {
     private String mDepartureStation;
     private String mDestination;
 
+    /**
+     * Activity sebagai constructor listView untuk MainActicity.
+     *
+     * @author Hanif Nur Ilham Sanjaya
+     */
+
     public BusView (int BusImgId, String BusName, String DepartureStation, String Destination) {
         mBusImgId = BusImgId;
         mBusName = BusName;
