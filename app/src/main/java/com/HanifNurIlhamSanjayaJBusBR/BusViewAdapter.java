@@ -17,7 +17,7 @@ public class BusViewAdapter extends ArrayAdapter<BusView> {
     public BusViewAdapter(@NonNull Context context, ArrayList<BusView> arrayList) {
         super(context, 0, arrayList);
     }
-
+    
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

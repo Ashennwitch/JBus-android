@@ -2712,6 +2712,7 @@ drawable baseline_home_24
 drawable baseline_payments_24
 drawable baseline_person_24
 drawable baseline_search_24
+drawable baseline_watch_later_24
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2885,6 +2886,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_a_schedule
 id add_button
 id addressEditText
 id alertTitle
@@ -2920,11 +2922,14 @@ id btn_layout
 id busImageView
 id busListView
 id busNameTextView
+id bus_name
 id buttonAdd
 id buttonPanel
+id buttonSaveDate
 id cache_measures
 id callMeasure
 id cancel_button
+id cardView
 id carryVelocity
 id center
 id centerCrop
@@ -3007,7 +3012,9 @@ id easeOut
 id east
 id editTextBusName
 id editTextCapacity
+id editTextDate
 id editTextPrice
+id editTextTime
 id edit_query
 id elastic
 id email
@@ -3087,6 +3094,7 @@ id login_form
 id m3_side_sheet
 id manageBus
 id manageBusListView
+id manage_schedule
 id marquee
 id masked
 id match_constraint
@@ -3214,6 +3222,8 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id schedule_date
+id schedule_list
 id screen
 id scroll
 id scrollIndicatorDown
@@ -3246,6 +3256,7 @@ id search_view_toolbar_container
 id search_voice_btn
 id select_dialog_listview
 id selected
+id selectedDateText
 id selection_type
 id sharedValueSet
 id sharedValueUnset
@@ -3309,6 +3320,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id textViewSpinner1
 id textViewSpinner2
 id textViewSpinner3
@@ -3479,6 +3491,7 @@ layout activity_add_bus
 layout activity_login
 layout activity_main
 layout activity_manage_bus
+layout activity_manage_bus_schedule
 layout activity_register
 layout activity_register_renter
 layout bus_view
@@ -3499,6 +3512,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_date_setter
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3550,6 +3564,7 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout mtrl_search_bar
 layout mtrl_search_view
+layout ngetes
 layout notification_action
 layout notification_action_tombstone
 layout notification_template_custom_big

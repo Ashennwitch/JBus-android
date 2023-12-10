@@ -43,9 +43,9 @@ public class AboutMeActivity extends AppCompatActivity {
         TextView initialTextView = findViewById(R.id.initial);
 
         // Mendapatkan referensi ke TextView untuk username, email, dan balance
-        TextView usernameTextView = findViewById(R.id.username);
-        TextView emailTextView = findViewById(R.id.email);
-        TextView balanceTextView = findViewById(R.id.balance);
+        nameTextView = findViewById(R.id.username);
+        emailTextView = findViewById(R.id.email);
+        balanceTextView = findViewById(R.id.balance);
 
         // Set inisial nama pengguna (ganti dengan inisial Anda)
         initialTextView.setText("H");

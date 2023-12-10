@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:background="#00FF4040"
         android:gravity="center"
-        android:text="Manage Bus"
+        android:text="Bus Manager"
         android:textColor="?android:attr/colorActivatedHighlight"
         android:textSize="57sp"
         android:textStyle="bold|italic" />
@@ -43,14 +43,17 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/baseline_arrow_back_ios_24"
-            android:minHeight="0dp" />
+            android:minHeight="0dp"
+            android:backgroundTint="#ED5737"
+            app:cornerRadius="28dp"/>
 
         <HorizontalScrollView
             android:id="@+id/page_number_scroll"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="25"
-            android:paddingHorizontal="12dp">
+            android:paddingHorizontal="12dp"
+            android:backgroundTint="#ED5737">
 
             <LinearLayout
                 android:id="@+id/btn_layout"
@@ -65,7 +68,9 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/baseline_arrow_forward_ios_24"
-            android:minHeight="0dp" />
+            android:minHeight="0dp"
+            android:backgroundTint="#ED5737"
+            app:cornerRadius="28dp"/>
     </LinearLayout>
     
 </LinearLayout>

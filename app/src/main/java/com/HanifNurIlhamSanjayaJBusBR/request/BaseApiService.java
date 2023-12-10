@@ -63,4 +63,29 @@ public interface BaseApiService {
     Call<List<Bus>> getMyBus(
             @Query("accountId") int accountId);
 
+    @POST("bus/addSchedule")
+    Call<BaseResponse<Bus>> addSchedule(@Query("busId") int busId,
+                                        @Query("time") String time);
+
+    @GET("bus/total")
+    Call<Integer> numberOfBuses();
+
+    @GET("bus/page")
+    Call<List<Bus>> getBus(@Query("page") int page, @Query("size") int pageSize);
+
+    @POST("bus/create")
+    Call<BaseResponse<Bus>> addBus(
+            @Query("accountId") int accountId,
+            @Query("name") String name,
+            @Query("capacity") int capacity,
+            @Query("facilities") List<Facility> facilities,
+            @Query("busType") BusType busType,
+            @Query("price") int price,
+            @Query("stationDepartureId") int stationDepartureId,
+            @Query("stationArrivalId") int stationArrivalId
+    );
+
+    @GET("bus/{id}")
+    Call<Bus> getBusbyId(@Path("id") int busId);
+
 }
