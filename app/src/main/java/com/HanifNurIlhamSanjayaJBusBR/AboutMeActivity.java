@@ -23,8 +23,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AboutMeActivity extends AppCompatActivity {
-    private TextView nameTextView, emailTextView, balanceTextView;
-    private Button TopUp;
+    private TextView initialTextView, nameTextView, emailTextView, balanceTextView;
+    private Button TopUp, manageBus;
     private EditText topUpInput;
     private BaseApiService mApiService;
     private Context mContext;
@@ -35,37 +35,56 @@ public class AboutMeActivity extends AppCompatActivity {
         mApiService = UtilsApi.getApiService();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_me);
+        topUpInput = findViewById(R.id.topUpAmountEditText);
+        TopUp = findViewById(R.id.topUpButton);
+        manageBus = findViewById(R.id.manageBus);
+        // Set inisial nama pengguna (ganti dengan inisial Anda)
+        //initialTextView.setText("H");
 
+
+        TopUp.setOnClickListener(v -> performTopUp());
+        handleRefreshAccount();
+    }
+
+    private void showRenterSection() {
+        // Show or hide views relevant to a renter
+        findViewById(R.id.renterSection).setVisibility(View.GONE);
+        findViewById(R.id.nonRenterSection).setVisibility(View.VISIBLE);
+    }
+
+    private void showNonRenterSection() {
+        // Show or hide views relevant to a non-renter
+        findViewById(R.id.renterSection).setVisibility(View.VISIBLE);
+        findViewById(R.id.nonRenterSection).setVisibility(View.GONE);
+    }
+
+    private void loadData(Account a) {
         topUpInput = findViewById(R.id.topUpAmountEditText);
         TopUp = findViewById(R.id.topUpButton);
 
         // Mendapatkan referensi ke TextView inisial
-        TextView initialTextView = findViewById(R.id.initial);
+        initialTextView = findViewById(R.id.initial);
 
         // Mendapatkan referensi ke TextView untuk username, email, dan balance
         nameTextView = findViewById(R.id.username);
         emailTextView = findViewById(R.id.email);
         balanceTextView = findViewById(R.id.balance);
 
-        // Set inisial nama pengguna (ganti dengan inisial Anda)
-        initialTextView.setText("H");
-
-        displayAccountData(LoginActivity.loggedAccount);
-
-        TopUp.setOnClickListener(v -> performTopUp());
-
-        if (LoginActivity.loggedAccount.company != null) {
+        initialTextView.setText(""+a.name.toUpperCase().charAt(0));
+        nameTextView.setText(a.name);
+        emailTextView.setText(a.email);
+        balanceTextView.setText("IDR "+a.balance);
+        if (a.company == null) {
             // Case: Account is a renter
             showRenterSection();
 
             // Listener for the button to navigate to ManageBusActivity
-            Button manageBusButton = findViewById(R.id.manageBus);
-            manageBusButton.setOnClickListener(v -> {
+            manageBus.setOnClickListener(v -> {
                 Intent intent = new Intent(AboutMeActivity.this, ManageBusActivity.class);
                 startActivity(intent);
             });
-        }  else {
-        // Case: Account is not a renter
+        } else {
+            // Case: Account is not a renter
             showNonRenterSection();
 
             // Listener for the button to navigate to RegisterRenterActivity
@@ -77,51 +96,22 @@ public class AboutMeActivity extends AppCompatActivity {
         }
     }
 
-    private void showRenterSection() {
-        // Show or hide views relevant to a renter
-        findViewById(R.id.renterSection).setVisibility(View.VISIBLE);
-        findViewById(R.id.nonRenterSection).setVisibility(View.GONE);
-    }
-
-    private void showNonRenterSection() {
-        // Show or hide views relevant to a non-renter
-        findViewById(R.id.renterSection).setVisibility(View.GONE);
-        findViewById(R.id.nonRenterSection).setVisibility(View.VISIBLE);
-    }
-
-    private void displayAccountData(Account account) {
-        if (account != null) {
-            nameTextView.setText(account.name);
-            emailTextView.setText(account.email);
-            // Sesuaikan dengan field balance pada kelas Account
-            balanceTextView.setText(String.valueOf(account.balance));
-        }
-    }
-
     private void performTopUp() {
         String topUpAmountStr = topUpInput.getText().toString();
         if (topUpAmountStr.isEmpty()) {
             Toast.makeText(mContext, "Please enter top-up amount", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        double topUpAmount = Double.parseDouble(topUpAmountStr);
-
-        mApiService.topUp(LoginActivity.loggedAccount.id, topUpAmount).enqueue(new Callback<BaseResponse<Double>>() {
+        String amountS = topUpInput.getText().toString();
+        Double amountD = amountS.isEmpty() ? 0d : Double.parseDouble(amountS);
+        mApiService.topUp(LoginActivity.loggedAccount.id, amountD).enqueue(new Callback<BaseResponse<Double>>() {
             @Override
             public void onResponse(Call<BaseResponse<Double>> call, Response<BaseResponse<Double>> response) {
-                if (response.isSuccessful()) {
-                    BaseResponse<Double> responseBody = response.body();
-                    if (responseBody.success) {
-                        // Update balance di layout
-                        balanceTextView.setText(String.valueOf(responseBody.payload));
-                        Toast.makeText(mContext, "Top-up successful", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(mContext, "Top-up failed: " + responseBody.message, Toast.LENGTH_SHORT).show();
-                    }
-                } else {
-                    Toast.makeText(mContext, "Top-up failed. Please try again.", Toast.LENGTH_SHORT).show();
+                BaseResponse<Double> res = response.body();
+                if(res.success) {
+                    balanceTextView.setText("IDR "+res.payload);
                 }
+                Toast.makeText(mContext, res.message, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -137,4 +127,34 @@ public class AboutMeActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handleRefreshAccount();
+    }
+
+    protected void handleRefreshAccount() {
+        BaseApiService mApiService = UtilsApi.getApiService();
+        mApiService.getAccountbyId(LoginActivity.loggedAccount.id).enqueue(new Callback<Account>() {
+            @Override
+            public void onResponse(Call<Account> call, Response<Account> response) {
+                if (!response.isSuccessful()) {
+                    Toast.makeText(mContext, "App error", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // if success, get the response body
+                Account responseAccount = response.body();
+                loadData(responseAccount);
+            }
+
+            // method for handling error talking to the server
+            @Override
+            public void onFailure(Call<Account> call, Throwable t) {
+                // do something
+            }
+        });
+    }
+
 }

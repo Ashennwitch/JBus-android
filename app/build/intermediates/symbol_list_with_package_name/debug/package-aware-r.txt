@@ -2926,6 +2926,7 @@ id bus_name
 id buttonAdd
 id buttonPanel
 id buttonSaveDate
+id button_manage_bus
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3073,6 +3074,7 @@ id included
 id indeterminate
 id info
 id initial
+id initial_name
 id invisible
 id inward
 id italic
@@ -3209,6 +3211,7 @@ id radio
 id ratio
 id rectangles
 id registerButton
+id register_company
 id register_form
 id renterSection
 id reverseSawtooth
@@ -3294,6 +3297,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id status_renter
 id stop
 id stretch
 id submenuarrow
@@ -3345,6 +3349,8 @@ id topPanel
 id topUpAmountEditText
 id topUpButton
 id topUpLayout
+id top_up_amount
+id top_up_button
 id touch_outside
 id transitionToEnd
 id transitionToStart
@@ -3488,13 +3494,13 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_about_me
 layout activity_add_bus
+layout activity_bus_detail
 layout activity_login
 layout activity_main
 layout activity_manage_bus
 layout activity_manage_bus_schedule
 layout activity_register
 layout activity_register_renter
-layout bus_view
 layout custom_bus_list_view
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3564,6 +3570,7 @@ layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
 layout mtrl_search_bar
 layout mtrl_search_view
+layout my_bus_view
 layout ngetes
 layout notification_action
 layout notification_action_tombstone

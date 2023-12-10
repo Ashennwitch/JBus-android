@@ -1,20 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id = "@+id/search_button"
-        android:title ="Search Button"
-        android:icon ="@drawable/baseline_search_24"
-        app:iconTint="@color/white"
-        app:showAsAction = "collapseActionView|always"
-        app:actionViewClass="androidx.appcompat.widget.SearchView" />
-    <item android:id = "@+id/profile"
-        android:title ="Profile"
-        app:iconTint="@color/white"
-        android:icon ="@drawable/baseline_person_24"
-        app:showAsAction = "collapseActionView|always" />
-    <item android:id = "@+id/payment"
-        android:title ="Payment"
-        app:iconTint="@color/white"
-        android:icon ="@drawable/baseline_payments_24"
-        app:showAsAction = "collapseActionView|always"/>
-</menu>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/busNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bus Name"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/departureTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/busNameTextView"
+        android:layout_marginTop="8dp"
+        android:text="Departure Station"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/destinationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/departureTextView"
+        android:layout_marginTop="8dp"
+        android:text="Arrival Station"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/capacityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/destinationTextView"
+        android:layout_marginTop="8dp"
+        android:text="Capacity: "
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/facilitiesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/capacityTextView"
+        android:layout_marginTop="8dp"
+        android:text="Facilities: "
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/busTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/facilitiesTextView"
+        android:layout_marginTop="8dp"
+        android:text="Bus Type: "
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/busTypeTextView"
+        android:layout_marginTop="8dp"
+        android:text="Price: "
+        android:textSize="18sp"/>
+
+</RelativeLayout>

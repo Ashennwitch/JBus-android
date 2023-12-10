@@ -160,7 +160,7 @@
             android:layout_height="48dp"
             android:gravity="center"
             android:onClick="onRegisterClick"
-            android:text="Anda belum terdaftar sebagai Renter\nDaftar disini"
+            android:text="Anda belum terdaftar sebagai Renter. \nDaftar disini"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
 
@@ -184,7 +184,7 @@
             android:layout_height="48dp"
             android:gravity="center"
             android:onClick="onRegisterClick"
-            android:text="Anda belum terdaftar sebagai Renter. \nDaftar disini"
+            android:text="Anda telah terdaftar sebagai Renter"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
 
