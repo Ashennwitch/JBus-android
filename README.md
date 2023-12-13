@@ -17,6 +17,10 @@ JBus adalah aplikasi Android untuk melakukan pemesanan, manajemen, dan penjadwal
 - Activities: Untuk navigasi antar layar.
 - dll.
 
+## Flowchart
+
+![FINPROFLOWCHART drawio](https://github.com/Ashennwitch/JBus-android/assets/119783785/51e58e2b-2ce3-4ea0-8f60-f1efcde8899d)
+
 ## Struktur Proyek
 - `app/src/main/java/com/HanifNurIlhamSanjayaJBusBR`: Kode sumber aplikasi.
 - `app/src/main/res`: Sumber daya seperti layout, gambar, dan nilai string.
